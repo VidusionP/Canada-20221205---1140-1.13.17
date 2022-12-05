@@ -1,0 +1,163 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "hero"}}
+
+<style>
+    @media (min-width: 801px){.cat-menu.light li a{color:#fff;}}
+</style>
+    <div class="cat-menu light">
+        <ul>
+            {{#each category.subcategories}}
+                <li><a href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a></li>
+            {{/each}}            
+        </ul>
+    </div>
+    
+    <section class="cat-hero">
+        <!-- <img src="/product_images/uploaded_images/extension-hero.jpg"> -->
+        <picture> 
+            <source media="(min-width:1020px)" srcset="/product_images/uploaded_images/extension-en-1920.jpg"> 
+            <source media="(min-width:900px)" srcset="/product_images/uploaded_images/extension-en-1020.jpg"> 
+            <source media="(min-width:700px)" srcset="/product_images/uploaded_images/extension-en-900.jpg">
+            <img loading="lazy" src="/product_images/uploaded_images/extension-en-700.jpg" alt="Hair Extension Superhairpieces"> 
+        </picture>
+    </section>
+
+{{/partial}}
+
+{{#partial "page"}}
+
+<div class="custom-cat extension">
+    
+    
+    <section class="cta-row">
+        <div class="cta-section">
+            <img class="cta-img" src="/product_images/uploaded_images/extension-cta-01.jpg" alt="human hair extensions">
+        </div>
+        <div class="cta-section">
+            <div class="cta-content">
+                <div class="cta-inner">
+                    <h1>Human Hair Extensions</h1>
+                    <p>Tape in Extension seamlessly add length, volume or highlights to your natural hair. Our remy tape-in extensions are made with pure 100% Remy human hair and come with strong, durable tape that won't damage your hair. We stock 5 lengths, 20 colors in 4 quality level from basic 3A to the highest 6A quality. Best recognized brand name in Canada for it's supreme quality reputation. Price always the lowest compare with the same quality level. Invisible and flexible in style, low Maintenance, Least Damaging, easy installation in one hour and reusable after 8 weeks. Perfection solution for either adding hair volume form thin to thick or affordable no damage highlights  </p>
+                    <a href="/extensions/tape-in/" class="button">View Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-row">
+        <div class="cta-section">
+            <div class="cta-content">
+                <div class="cta-inner">
+                    <h2>Eyelashes</h2>
+                    <p>Our newest line of products which features both 3D mink full strip lashes as well as cluster and singular eyelash extensions. Our strip lashes are made of 100% mink fur, for the best texture and most durable lashes you will ever wear. The 3D effect the lashes provide uses a layered effect to make sure your lashes look natural while looking posh. Our individual lashes as well as our cluster eyelashes are mainly used for experienced users or salon owners who are looking to customize the eyelash experience. We use 100% silk on these extensions and only carry the curliest D and DD curl styles. Our Online pricing only shows retail and we do provide a hefty wholesale discounts on all our eyelash products to salon owners or those looking to buy in bulk. </p>
+                    
+                    <a href="/eyelash/" class="button">View Eyelashes</a>
+                </div>
+            </div>
+        </div>
+        <div class="cta-section">
+            <img class="cta-img" src="/product_images/uploaded_images/extension-cta-02.jpg" alt="Eyelashes">
+        </div> 
+    </section>
+
+    <section class="cta-row">
+        <div class="cta-section">
+            <img class="cta-img" src="/product_images/uploaded_images/extension-cta-03.jpg" alt="Machine Weft Hair Extensions">
+        </div>
+        <div class="cta-section">
+            <div class="cta-content">
+                <div class="cta-inner">
+                    <h2>Machine Weft</h2>
+                    <p>In Hair Extensions market, people generally thinking machine weaves hair are for African American people and Extensions are for caucasians.  Superhairpieces luxury machine weft extensions bring hair type with most European hair texture to make this method possible for Caucasian people add hair volume and length to the hair. Hair is naturally treated with minimum cuticle damage keep this high-quality hair healthy and strong to last. Weft can be sewn on or micro ring beaded to link attach on your hair. Sew in weaves can also be used on repair wigs as well. </p>
+                    <a href="/extensions/machine-weft/" class="button">View Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cta-row">
+        <div class="cta-section">
+            <div class="cta-content">
+                <div class="cta-inner">
+                    <h3>The Best Human Hair Extensions In Canada</h3>
+                    <p>You can now purchase the best human hair extensions available in the Great White North thanks to Superhairpieces Canada. We offer premium, high-quality hair extensions which you can order online at superhairpieces.ca to provide length, volume and density to your natural hair. A big reason why our hair extensions are superior to most is that we use the highest quality human hair. Our 3A and 4A quality hair is made with 100% Indian Remy hair while the light colors are made with a 50-50 mix of Chinese and Indian Remy human hair. Our 5A and 6A quality hair uses 100% Chinese Remy hair for both light and dark colors which is the most premium hair we offer. Additionally, we offer our human hair extensions in the Greater Toronto Area and all over Canada in different lengths as well as a wide range of colours so you can order your favorite shade of extensions. Not to mention a wide selection of hair extensions types including: clip-in hair extensions, tape-in extensions, u-tip hair extensions, i-tip hair extensions, machine weft hair extensions, hand-tied weft extensions, halo hair extensions and much more! Reclaim your confidence and flaunt your beautiful looks with thicker and more voluminous hair! </p>
+                    <a href="https://superhairpieces.ca/superhairbabes/" class="button">View Products</a>
+                </div>
+            </div>
+        </div>
+                <div class="cta-section">
+            <img class="cta-img" src="/content/images/extensioncategory/extension-cta-05.jpg" alt="Hair Extensions Canada">
+        </div>
+    </section>
+    
+</div>
+
+{{/partial}}
+
+
+{{#partial "signup"}}
+    <section class="cat-join extension" alt="best hair extensions" style="background-image: url(/product_images/uploaded_images/extension-signup.jpg);">
+        <div class="cat-join-inner">
+            <h2>Looking for High End Level ?</h2>
+            <p>Hand Tied Weft <br>for very fine hair truly undetectable integration.</p>
+            {{!--<span onclick="iconPop();" class="button">Check Now</span>
+            --}}
+            <a href="/extensions/hand-tied-weft/" class="button">Check Now</a>
+        </div>
+    </section>
+{{/partial}}
+
+
+
+{{!--
+
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{#if category.image}}
+    <img src="{{getImage category.image 'zoom_size'}}">
+{{/if}}
+<h1 class="page-heading">{{category.name}}</h1>
+{{{category.description}}}
+{{{snippet 'categories'}}}
+<div class="page">
+    {{#or category.subcategories category.faceted_search_enabled}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else}}
+        {{#if theme_settings.shop_by_price_visible}}
+            <aside class="page-sidebar" id="faceted-search-container">
+                {{> components/category/sidebar}}
+            </aside>
+        {{/if}}
+    {{/or}}
+    <main class="page-content" id="product-listing-container">
+        {{#if category.products}}
+            {{> components/category/product-listing}}
+        {{else}}
+            <p>{{lang 'categories.no_products'}}</p>
+        {{/if}}
+    </main>
+</div>
+
+{{/partial}}
+
+--}}
+
+{{> layout/base}}
+

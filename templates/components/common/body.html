@@ -1,0 +1,39 @@
+{{#block "hero"}} {{/block}}
+<div class="body {{page_type}}">
+    {{#block "full-page"}} {{/block}}
+    <div class="container">
+        {{#or (if page_type '==' 'category') (if page_type '==' 'product') (if page_type '==' 'brand') (if page_type '==' 'search')}}
+        <div align="right" class="free-shipping"><a href="/shipping-returns-warranty/" style="text-decoration:none" target="_blank">Free Hairpieces Shipping Canada</a></div>
+        <!-- Moving Banner -->
+        <div class="universal-banner-container"
+        data-slick='{            
+            "mobileFirst": true,
+            "arrows": false,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "autoplay": true,
+            "autoplaySpeed": 6000,
+            "lazyLoad": "anticipated",
+
+            "initialSlide": {{random 1 2}}
+        }'>
+            <a href="/evolve-global-academy">
+                <picture>
+                    <source media="(min-width:600px)" srcset="/content/images/marketing/promo/evolvepc.jpg" type="image/jpeg">                
+                    <img style="width: 100%;" src="/content/images/marketing/promo/evolvemobile.jpg" alt="Custom made sale">
+                </picture>
+            </a>
+            <a href="/cyber-monday-on-sales/">
+                <picture>
+                    <source media="(min-width:600px)" srcset="/content/images/marketing/superevent/superevent12b.jpg" type="image/jpeg">                
+                    <img style="width: 100%;" src="/content/images/marketing/superevent/superevent5b.jpg" alt="Custom made sale">
+                </picture>
+            </a>
+        </div>
+        <!-- End of Moving Banner -->
+        {{/or}}
+        {{#block "page"}} {{/block}}
+    </div>
+    {{> components/common/modal}}
+</div>
+{{#block "signup"}} {{/block}}

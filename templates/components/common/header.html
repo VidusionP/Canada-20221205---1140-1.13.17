@@ -1,0 +1,47 @@
+{{#if banners.top}}
+<div class="banners" data-banner-location="top">
+    <div class="banner">
+        {{{limit banners.top 1}}}
+    </div>
+</div>
+{{/if}}
+<div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
+    {{> components/common/quick-search}}
+</div>
+<header class="header" role="banner">
+    <div class="top-navigation-container">
+        <div class="store-navigation-container">
+            <div class="item" shp>
+                <a href="//superhairpieces.ca">
+                    <img src="/content/images/common/shp-logo.png" alt="superhairpieces.ca">
+                    <span class="name">superhairpieces.ca</span>
+                </a>
+            </div>
+            <div class="item" genc>
+                <a href="//gencbeauty.com" target="_blank">
+                    <img src="/content/images/common/genc-logo.png" alt="gencbeauty.com">
+                    <span class="name">gencbeauty.com</span>
+                </a>
+            </div>
+        </div>        
+    </div>    
+    <div class="header-bkg">
+        <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+            <span class="mobileMenu-toggleIcon">Toggle menu</span>
+        </a>        
+        {{#if page_type '===' 'default'}}
+            <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </h1>
+        {{else}}
+            <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </div>
+        {{/if}}                    
+        {{{region name="header_bottom"}}}
+        <div class="navPages-container" id="menu" data-menu>
+            {{> components/common/navigation-menu}}
+        </div>
+        {{> components/common/navigation}}
+    </div>    
+</header>

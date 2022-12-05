@@ -1,0 +1,225 @@
+{{#if children}}
+<a class="navPages-action has-subMenu" href="{{url}}" data-collapsible="navPages-{{id}}">
+    {{name}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+</a>
+<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+    <ul class="navPage-subMenu-list">
+        <!-- <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{lang 'category.view_all.name' category=name}}</a>
+        </li> -->
+        {{#each children}}
+            {{#if name '==' 'Promotions'}}
+                {{#if ../../name '==' 'Men'}}
+                <li class="navPage-subMenu-item">
+                    <a
+                        class="navPage-subMenu-action navPages-action has-subMenu"
+                        href="#"
+                        data-collapsible="navPages-men-og"
+                        data-collapsible-disabled-breakpoint="medium"
+                        data-collapsible-disabled-state="open"
+                        data-collapsible-enabled-state="closed">
+                        Order Guide <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                    </a>
+                    <ul class="navPage-childList" id="navPages-men-og">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/inventory/">
+                                Inventory Search
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/mens-hair-system-hair-color-chart/">
+                                Hair Color Chart
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/men/custom-made/design-tools/">
+                                Order accessories
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="https://www.flipsnack.com/678D7566AED/men-catalog-2022-for-canada/full-view.html" target="_blank">
+                                E-Catalog
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/hair-system-subscription-program/">
+                                Hairpiece Subscription
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {{else if ../../../name '==' 'Women'}}
+                <li class="navPage-subMenu-item">
+                    <a
+                        class="navPage-subMenu-action navPages-action has-subMenu"
+                        href="#"
+                        data-collapsible="navPages-women-service"
+                        data-collapsible-disabled-breakpoint="medium"
+                        data-collapsible-disabled-state="open"
+                        data-collapsible-enabled-state="closed">
+                        Services <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                    </a>
+                    <ul class="navPage-childList" id="navPages-men-og">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/online-professional-hair-consultant-for-hair-pieces-toupee/">
+                                Online Consultation
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/clips-sew-on-service/">
+                                Clips Sew on Service
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/gta" style="font-weight:bold">
+                                In Store Appointment
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="navPage-subMenu-item">
+                    <a
+                        class="navPage-subMenu-action navPages-action has-subMenu"
+                        href="#"
+                        data-collapsible="navPages-women-og"
+                        data-collapsible-disabled-breakpoint="medium"
+                        data-collapsible-disabled-state="open"
+                        data-collapsible-enabled-state="closed">
+                        Order Guide <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                    </a>
+                    <ul class="navPage-childList" id="navPages-women-og">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/inventory/">
+                                Inventory Search
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/men/custom-made/design-tools/">
+                                Order accessories
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/hair-color-chart-for-womens-hair-system/">
+                                Hair Color Chart
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/hair-system-subscription-program/">
+                                Hairpiece Subscription
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {{/if}}            
+            {{/if}}
+            <li class="navPage-subMenu-item">
+                {{#if children}}
+                    <a
+                        class="navPage-subMenu-action navPages-action has-subMenu"
+                        href="{{url}}"
+                        data-collapsible="navPages-{{id}}"
+                        data-collapsible-disabled-breakpoint="medium"
+                        data-collapsible-disabled-state="open"
+                        data-collapsible-enabled-state="closed" parent="{{../../name}}">
+                        {{name}} {{#if name '==' 'Promotions'}} <img src="/content/images/common/shopping-bag.svg" alt="P" width="18" height="18" style="margin-left:3px"> {{/if}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                    </a>
+                    <ul class="navPage-childList" id="navPages-{{id}}">
+                        {{#if name '==' 'Services'}}
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/online-professional-hair-consultant-for-hair-pieces-toupee/">
+                                Online Consultation
+                            </a>
+                        </li>
+                        {{else if name 'Promotions'}}
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/seasonal-sales/">
+                                Season's Pass
+                            </a>
+                        </li>
+                        {{/if}}
+                        {{#each children}}
+                        <li class="navPage-childList-item" {{#if name '==' 'Design Tools'}}style="display:none"{{/if}}>
+                            <a class="navPage-childList-action navPages-action" href="{{url}}">
+                                {{#if name '==' 'Small Size Toupee'}}
+                                    Small
+                                {{else if name '==' 'Medium Size Toupee'}}
+                                    Medium
+                                {{else if name '==' 'Large Size Toupee' }}
+                                    Large
+                                {{else if name '==' 'Full Cap Wigs' }}
+                                    Wigs
+                                {{else if name '==' 'European Human Hair' }}
+                                    European Hair
+                                {{else if name '==' 'Regular Human Hair' }}
+                                    Regular Hair
+                                {{else if name '==' 'Basic Human Hair' }}
+                                    Basic Hair
+                                {{else if name '==' 'Thin Skin Hair Systems' }}
+                                    Skin
+                                {{else if name '==' 'Mono Hair Systems' }}
+                                    Mono
+                                {{else if name '==' 'Lace Hair Systems' }}
+                                    Lace
+                                {{else if name '==' 'Lace with Poly Hair Systems' }}
+                                    Lace with Poly
+                                {{else if name '==' 'Custom Made Toupee' }}
+                                    Toupee
+                                {{else if name '==' 'Custom Made Full Cap Wig' }}
+                                    Full Cap Wig
+                                {{else if name '==' 'Hairpiece Repair' }}
+                                    Repair
+                                {{else if name '==' 'Hairpiece Cutting & Styling' }}
+                                    Online Cut
+                                {{else if name '==' 'Small Size Hair Toppers' }}
+                                    Small
+                                {{else if name '==' 'Medium Size Hair Toppers' }}
+                                    Medium
+                                {{else if name '==' 'Large Size Hair Toppers' }}
+                                    Large
+                                {{else if name '==' 'Extra Large Hair Toppers' }}
+                                    Extra Large
+                                {{else if name '==' 'Premium Human Hair' }}
+                                    Premium Hair
+                                {{else if name '==' 'Mono Hair Toppers & Wigs' }}
+                                    Mono
+                                {{else if name '==' 'Lace Hair Toppers & Wigs' }}
+                                    Lace
+                                {{else if name '==' 'Skin Hair Toppers' }}
+                                    Skin
+                                {{else if name '==' 'Silicone Base Wigs' }}
+                                    Silicone
+                                {{else if name '==' 'Custom Made Hair Toppers' }}
+                                    Hair Toppers
+                                {{else if name '==' 'Custom Made Wigs' }}
+                                    Wigs
+                                {{else if name '==' 'Universal Toupee' }}
+                                    Universal
+                                {{else}}
+                                    {{name}}
+                                {{/if}}
+                            </a>
+                        </li>
+                        {{/each}}
+                        {{#if name '==' 'Services'}}
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/gta" style="font-weight: bold">
+                                In Store Appointment
+                            </a>
+                        </li>
+                        {{/if}}
+                    </ul>
+                {{else}}
+                    <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{name}}</a>
+                {{/if}}
+            </li>
+        {{/each}}
+        {{#contains name 'Supplies'}}
+        <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="/brands">Shop Brands</a>
+        </li>
+        {{/contains}}
+    </ul>
+</div>
+{{else}}
+<a class="navPages-action" href="{{url}}">{{name}}</a>
+{{/if}}

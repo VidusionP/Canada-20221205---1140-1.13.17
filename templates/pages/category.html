@@ -1,0 +1,584 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: 24
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+<link rel="stylesheet" href="/content/css/category.min.css">
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{#if category.image}}
+    <img src="{{getImage category.image 'zoom_size'}}">
+{{/if}}
+<div class="scroll_arrow">
+    <i class="icon cate1" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-up" /></svg></i>
+</div>
+
+<h1 class="page-heading category-heading">
+    <span class="category-name" {{#if category.subcategories}}has-sub{{/if}}>{{category.name}}</span>
+</h1>
+{{>components/category/subcategories}}
+<div class="category-description-wrap-top">
+{{{category.description}}}
+</div>
+{{{snippet 'categories'}}}
+
+{{#or (if breadcrumbs.[3].name '==' 'Shampoo') (if breadcrumbs.[3].name '==' 'Conditioner')}}
+{{else}} 
+
+    <div class="cate-desktop"></div>
+
+{{/or}} 
+
+
+<div class="page">
+    {{#or category.subcategories category.faceted_search_enabled}}
+
+            {{> components/category/sidebar}}
+
+    {{else}}
+        {{#if theme_settings.shop_by_price_visible}}
+
+                {{> components/category/sidebar}}
+
+        {{/if}}
+    {{/or}}
+    <main class="page-content" id="product-listing-container">
+        {{#if category.products}}
+            {{> components/category/product-listing}}
+        {{else}}
+            <p>{{lang 'categories.no_products'}}</p>
+        {{/if}}
+    </main>
+</div>
+{{#if breadcrumbs.[3].name "==" "Customized Stock"}}
+<link rel="stylesheet" href="/content/css/category.modal.min.css">
+<div id="faq-section">
+    <div class="faq-wrap">
+        <h2>
+            <span class="mobile">FAQs</span>
+            <span class="pc">Frequently Asked Questions</span>
+        </h2>
+        <div class="faq-accordion">
+            <div class="faq-accordion-item">
+                <button aria-expanded="true">
+                    <h3 class="faq-accordion-title" step="1.">When will you receive your customized stock order?</h3>
+                    <span class="faq-icon" aria-hidden="false"></span>
+                </button>
+                <div class="faq-accordion-content">
+                   <p>
+                        Overall it'll take anywhere from 2-3 months to receive your customized stock hairpiece. The wait time depends on the base of the stock hair system that you are customizing. Receiving a customized stock basic model can take up to two months; a stock lace system can take up to three months, and finally, a stock skin-based hairpiece can take between two to three months.
+                    </p>
+                    <p>It's crucial to keep in mind that our factory can already be producing your selected unit, so you can anticipate the hairpiece to arrive earlier than these projected times! </p>
+                </div>
+            </div>
+            <div class="faq-accordion-item">
+                <button aria-expanded="false">
+                    <h3 class="faq-accordion-title" step="2.">What are the benefits of ordering customized hairpiece?</h3><span class="faq-icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-accordion-content">
+                    <p>
+                        Ordering a customized personalized stock hairpiece has many advantages. Our hair products are in high demand. It's recommended to place a customized hairpices and anticipate it within three months in order to guarantee that you have the ideal unit where you can modify the size, length, color, and other customizable features.
+                    </p>
+                   </div>
+            </div>
+            <div class="faq-accordion-item">
+                <button aria-expanded="false">
+                    <h3 class="faq-accordion-title" step="3.">Am I able to cancel my customized order?</h3><span class="faq-icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-accordion-content">
+                    <p>
+                        You can cancel your customized order unit if the item matches the normal stock features because you did not alter the unit's size and hair density when you bought the stock hairpiece.
+                    </p>
+                    <p>If your stock item is customized, it cannot be canceled or given back because customized orders are final sales.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myModal1" class="modal1"> <span class="close1">&times;</span><img class="modal-content1" id="img01" /></div>
+<script src="/content/js/category.modal.min.js"></script>
+{{else if breadcrumbs.[2].name "==" "Custom Made"}}
+<link rel="stylesheet" href="/content/css/category.modal.min.css">
+<div id="faq-section">
+    <div class="faq-wrap">
+        <h2>
+            <span class="mobile">FAQs</span>
+            <span class="pc">Frequently Asked Questions</span>
+        </h2>
+        <div class="faq-accordion">
+            <div class="faq-accordion-item">
+                <button aria-expanded="true">
+                    <h3 class="faq-accordion-title" step="1.">How long will it take for your custom order to arrive?</h3>
+                    <span class="faq-icon" aria-hidden="false"></span>
+                </button>
+                <div class="faq-accordion-content">
+                    <p>Depending on the purchased hairpiece, the current wait period ranges from 3-5 months (women 4-6 months).</p>
+                   </div>
+            </div>            
+        </div>
+    </div>
+</div>
+<div id="myModal1" class="modal1"> <span class="close1">&times;</span><img class="modal-content1" id="img01" /></div>
+<script src="/content/js/category.modal.min.js"></script>
+{{else if breadcrumbs.[1].name "==" "Extensions"}}
+    {{#if breadcrumbs.[2].name "==" "Tape In"}}
+    <div id="faq-section">
+        <div class="faq-wrap">
+            <h2>
+                <span class="mobile">FAQs</span>
+                <span class="pc">Frequently Asked Questions</span>
+            </h2>
+            <div class="faq-accordion">
+                <div class="faq-accordion-item">
+                    <button aria-expanded="true">
+                        <h3 class="faq-accordion-title" step="1.">How long do tape in hair extensions last?</h3><span class="faq-icon" aria-hidden="false"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            Each installation lasts 6-8 weeks depending on the speed of the client's hair growth. You need to book your clients to do a re-taping and reinstallation service to move the tape in extension up to the root for the hair again. Depending on the quality of the hair, and the clients wearing and maintenance habits, the tape in extension can be reinstalled 3-6 times. We recommend 3 reinstallations for our 3A/4A hair extensions and 6 reinstallations for our 5A/6A hair extensions. Overall, 3A/4A tape in extensions will last 3-5 months and 5A/6A tape in extensions will last 6-10 months.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="2.">How much does tape in hair extensions cost?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            The cost of tape extensions depends on 3 factors; the length, quality, and colour. Depending on what length, quality, and colour you select, the price will change.
+                        </p>                        
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="3.">How to put in tape in hair extensions?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            First, wash and dry your hair so your extensions last longer. Then part your hair at the back and apply the extension right near the scalp where your hair is parted. Take a thin portion of your hair and place it below the extension before applying another extension to sandwich it. Make sure to press the tape in extensions firmly for 10-20 seconds and then you're all set. Repeat the process for others.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="4.">How to wash tape in hair extensions?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            Hair extensions tend to tangle so it's important to brush your hair regularly. When you take a shower, apply shampoo right at the roots of your hair extensions and work your way down. Apply conditioner, wash, and dry your hair with a towel carefully. Use a hair dryer to ensure none of your hair extensions are wet.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="5.">How to remove tape in hair extensions at home?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            Tie your hair up so your extensions are in full view. Apply a non-chemical tape glue remover to the extension tape and let it seep for a bit before removing the extension. You can also apply the remover for any leftover residue on your hair. <a href="https://www.superhairpieces.com/toupee-wig-hair-system-blog/how-to-remove-clean-prep-tape-extensions/">Read More</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="6.">How to choose the correct length of hair extensions?</h3>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            We recommend going for hair extensions that are 3'' to 4'' inches longer than your natural hair length. It is also best if your natural hair length is at least 4'' to 5'' inches long to help you conceal and blend the extensions into your hair. To learn more: <a href="//www.superhairpieces.com/toupee-wig-hair-system-blog/guide-how-to-choose-the-correct-length-of-hair-extensions/" target="_blank">Hair Extension Length Guide</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else if breadcrumbs.[2].name "==" "Clip In"}}
+    <div id="faq-section">
+        <div class="faq-wrap">
+            <h2>
+                <span class="mobile">FAQs</span>
+                <span class="pc">Frequently Asked Questions</span>
+            </h2>
+            <div class="faq-accordion">
+                <div class="faq-accordion-item">
+                    <button aria-expanded="true">
+                        <h3 class="faq-accordion-title" step="1.">How many clip-in extensions do I need?</h3><span class="faq-icon" aria-hidden="false"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            For a full head installation, we typically recommend 100g - 150g. Each pack of our clip in extensions is 100g so 1-2 packs for a full head installation should be fine.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="2.">How do I select which hair extensions are perfect for me? Are they all human hair?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            All our hair extensions are made with real human hair. As for which hair extension you should go for, it ultimately depends on your hair and needs. If you have thin hair, you may require a different hair extension than someone who might have more thick hair. Or if you're looking for hair extensions for special occasions, a particular hair extension may suit you more than one which is for a more permanent basis. For more information, <a href="https://superhairpieces.ca/blog/what-are-the-different-types-of-hair-extensions/" target="_blank">click here</a>.
+                        </p>                        
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="3.">How long do clip-in hair extensions last?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            It's hard to say. It depends on the grade and how often they are worn. For someone who wears theirs every day vs. someone who only wears it occasionally, the one who wears it only occasionally will last longer.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="4.">What is the cost of clip-in hair extensions?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            The cost of tape extensions depends on three factors; the length, quality, and colour. Depending on what length, quality, and colour you select, the price will change.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="5.">How do you install clip-in hair extensions?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            Brush your hair first. Part your hair so that it is in line with your ears. Clip in the middle part of the hair extension onto the parting line first before clipping in the sides. Brush the hair extensions before blending it with your own hair. <a href="https://superhairpieces.ca/blog/clip-in-vs-tape-in-hair-extensions-which-one-should-you-go-for/" target="_blank">Read More</a>
+                        </p>
+                    </div>
+                </div>                
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="6.">How do you wash clip-in hair extensions?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            Brush your extensions. Then holding the wefts from the top, submerge the hair in water and apply shampoo gently. Set it aside on a towel to dry before applying conditioner and doing the same. Rinse it out and use a hair dryer to ensure it's not wet anymore.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="7.">How do you take care of clip-in extensions?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            Store your hair extensions properly when not in use. Regularly brush your extensions carefully. Don't wash the extensions too frequently but when it is washed, make sure to do it gently and not overwash otherwise it can be dry and damaged. Use shampoo and conditioner and a hair dryer after the wash to make sure it's not wet.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="8.">How to Choose the Correct Length of Hair Extensions?</h3>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            We recommend going for hair extensions that are 3" to 4" inches longer than your natural hair length. It is also best if your natural hair length is at least 4'' to 5'' inches long to help you conceal and blend the extensions into your hair. To learn more: <a href="//www.superhairpieces.com/toupee-wig-hair-system-blog/guide-how-to-choose-the-correct-length-of-hair-extensions/" target="_blank">Hair Extension Length Guide</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {{else if breadcrumbs.[3].name '==' 'Eyelash extension'}}
+    <div id="faq-section">
+        <div class="faq-wrap">
+            <h2>
+                <span class="mobile">FAQs</span>
+                <span class="pc">Frequently Asked Questions</span>
+            </h2>
+            <div class="faq-accordion">
+                <div class="faq-accordion-item">
+                    <button aria-expanded="true">
+                        <h3 class="faq-accordion-title" step="1.">How to apply eyelash extensions?</h3><span class="faq-icon" aria-hidden="false"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            <strong>Note: </strong>It may be best to have a professional install them for you. First, clean your eye area with a cleanser. Then apply an eye patch to your lower lashes so they don't make contact as you apply the extensions on your upper lashes. Brush the upper lashes so that none are tangled. Apply the lashes one by one using proper <a href="https://superhairpieces.ca/5ml-sky-glue-s-eyelash-lash-extensions-glue/" target="_blank">eyelash glue</a>. Once they are bonded, allow the glue to dry for a couple of minutes. Repeat this process for your lower lashes.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="2.">How long do eyelash extensions last?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            Eyelash extensions can last from two to four weeks, but could last longer depending on how well they are maintained and cleaned.
+                        </p>                        
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="3.">What are cluster eyelash extensions?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            Cluster eyelash extensions are multiple lashes knotted at the base.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="4.">Are individual or cluster lashes better?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            Both extensions have their pros and cons. Individual lashes are safe and easy to wear as they are not heavy and can last a couple of weeks. <a href="https://superhairpieces.ca/eyelash-cluster-extension-d-curl-11-mm/" target="_blank">Cluster lashes</a>, on the other hand, are heavy which can cause damage to your lashes and skin, and typically lasts a week at most. However, they are cheap compared to individual lashes and can also be applied on the eyelid skin to reduce shedding. They produce a more dramatic look for your lashes.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="5.">What's the difference between D curl and DD curl?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            Both D and DD curls are types of lash extensions that are designed to produce a more curled look when applied on your natural lashes. The difference between them is simply that the DD has a tighter and more dramatic curl compared to the D curl.
+                        </p>
+                    </div>
+                </div>                
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="6.">How to remove eyelash extensions?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            <strong>Note: </strong>It is best to have a professional remove them for your safety. Make sure to use an oil-free remover. There are two types of remover you can use -- the cream remover or the <a href="https://superhairpieces.ca/eyelash-gel-remover/" target="_blank">gel remover</a>. The cream remover is more ideal for those with sensitive skin as it causes less irritation. Apply an eye patch to the lashes you aren't removing yet (lower or upper). Using a cotton swab, apply the remover from the base of your natural lashes up to the extensions. Make sure the eyes are closed during this process. Try not to make contact with the skin or lash line. Let it sit for a few minutes to allow the bonds to weaken. Gently slide them off with a cotton swab and they should come off easily. You can also use <a href="https://superhairpieces.ca/eyelash-pick-up-tweezer/" target="_blank">a tweezer</a> but be careful as it can damage your natural lashes. Using fresh cotton swabs, remove any leftover remover on the natural lashes. Gently remove the eye patch and apply foam cleanser thoroughly to your lashes before rinsing. Repeat the process for the other set of lashes.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="7.">Can I sleep or shower with eyelash extensions?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            Yes, but avoid getting your lashes wet within the first 48 hours after application. You can sleep and shower with eyelash extensions but some precautions need to be taken. For more information on <a href="https://superhairpieces.ca/blog/can-you-sleep-with-eyelash-extensions/" target="_blank">sleeping with lash extensions</a>. For more information on <a href="https://superhairpieces.ca/blog/can-you-shower-with-eyelash-extensions/" target="_blank">showering with lash extensions</a>.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="8.">Why are my eyelash extensions falling out?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            The first major reason your eyelash extensions are falling out could be natural shedding; as your natural lashes shed, so will the extensions that are attached to them. However, there could be many other reasons as to <a href="https://superhairpieces.ca/blog/6-reasons-why-your-eyelash-extensions-are-falling-out/" target="_blank">why your extensions are falling</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+{{else if breadcrumbs.[1].name '==' 'Women'}}
+    {{#if breadcrumbs.[3].name '==' 'All Wigs In Stock'}}
+    <div id="faq-section">
+        <div class="faq-wrap">
+            <h2>
+                <span class="mobile">FAQs</span>
+                <span class="pc">Frequently Asked Questions</span>
+            </h2>
+            <div class="faq-accordion">
+                <div class="faq-accordion-item">
+                    <button aria-expanded="true">
+                        <h3 class="faq-accordion-title" step="1.">What is the best human hair wig?</h3><span class="faq-icon" aria-hidden="false"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            There are different types of human hair wigs with the major differences being the type of bases and the type of hair that is being used. From mono wigs, lace front wigs, <a href="/women/in-stock/search-by-base/full-cap-wigs/full-lace-wig/">full lace wigs</a> to even poly skin wigs, these are wig bases that provide specific features and qualities that can suit a particular person's lifestyle and needs. There are also different types of human hair used in women's wigs such as Chinese, Indian, European and more.
+                        </p>
+                        <p>Superhairpieces is a leading and reputable hairpiece and wig company based in North America that offers a wide range of wigs for women. We offer plenty of colors as well as custom orders to give you the exact wig and hair that you desire. If you are interested in purchasing a women's wig online, you can view our selection of the best real human hair wigs.</p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="2.">Which one is better — a full lace wig or a lace front wig?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            Lace material is known for being extremely natural-looking and providing a seamless appearance. But which one is better — a full lace wig or a lace front wig? A full lace wig uses lace material throughout the hairpiece which means it will be natural-looking throughout. They are also breathable, light and come with many styling options. However, they can be messy to attach and remove in the maintenance process.
+                        </p>
+                        <p>A lace front wig only utilizes lace material in the front, but this helps in achieving a natural-looking front hairline. The rest of the unit will feature poly skin or monofilament material or a combination of both which provides additional durability and easy attachment options. Additionally, they are slightly more affordable than full lace wigs.</p>
+                        <p>So in the end, it's all down to your preference and what you're looking for with your wigs for women.</p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="3.">What kind of women's wigs look the most natural?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            When it comes to a natural look with women's wigs, your best bet is to go for full lace wigs. Lace material is the most natural-looking and is ideal for those who want a seamless appearance with their new human hair wig. Superhairpieces offers a number of full lace wigs so you can get the realistic look you desire without anyone questioning if you're wearing a hairpiece.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="4.">How do I select a human hair wig for women?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            When it comes to selecting a human hair wig, you will need to keep a few things in mind in order to get a wig that not only fits, but looks natural on you.
+                        </p>
+                        <p>
+                            These include the following:
+                            <ul>
+                                <li>Selecting the right base material/cap for your wig</li>
+                                <li>Selecting the right wig hair color</li>
+                                <li>Selecting the right sized wig for your head</li>
+                                <li>Determining the right hair density for your women's wig</li>
+                            </ul>
+                        </p>
+                        <p>If you require any further help or information, feel free to reach out to the Superhairpieces customer support team who can assist you in selecting your human hair wig.</p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="5.">How do you measure your head size for women's wigs?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            It's important to measure your head size so you get a wig that fits you correctly and comfortably. This helps prevent potential irritation and ensure a more natural-looking appearance. For example, a wig that is much bigger than your actual head size will not look natural and can be a dead giveaway that you're wearing a hairpiece.
+                        </p>
+                        <p>
+                            To get the appropriate measurements for a women's wig, you will need a measuring tape and a marker so that you can measure the following:
+                            <ul>
+                                <li>The circumference of your head</li>
+                                <li>The front to nape</li>
+                                <li>Ear to ear</li>
+                                <li>Ear to ear across the top</li>
+                                <li>Temple to temple around the back</li>
+                                <li>The nape of the neck</li>
+                            </ul>
+                        </p>
+                        <p>
+                            You can watch the video below to get a visual representation of how to make these measurements thanks to our hair specialist Cindy:                            
+                        </p>
+                        <iframe style="margin: 0 auto;max-width:100%" width="560" height="315" src="https://www.youtube.com/embed/ngUk_KMBzhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>                
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="6.">What wig care products will I need in addition to the wig?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            In addition to your wig, you will need certain products and supplies to help you attach, remove and maintain your hairpiece. These usually include the following:
+                            <ul>
+                                <li><a href="/supplies/attachment-removal/cleaner-solvent/">Adhesive solvent</a></li>
+                                <li><a href="/supplies/attachment-removal/hairpiece-tape/">Wig tape</a> or <a href="/supplies/attachment-removal/liquid-adhesive/">wig glue</a></li>
+                                <li><a href="/supplies/washing-styling/shampoo/">Wig shampoo</a></li>
+                                <li><a href="/supplies/washing-styling/conditioner/">Wig conditioner</a></li>
+                                <li><a href="/supplies/attachment-removal/wig-clips/">Wig clips</a></li>
+                                <li>Wig brushes and combs</li>
+                            </ul>
+                        </p>
+                        <p>You can purchase all these products along with your women's wig at Superhairpieces from our <a href="/brands/">brands</a> page.</p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item">
+                    <button aria-expanded="false">
+                        <h3 class="faq-accordion-title" step="7.">Is a wig covered by insurance?</h3><span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-accordion-content">
+                        <p>
+                            If you are wearing a wig for medical purposes due to alopecia or if you're undergoing chemotherapy, you may be eligible to have your purchase covered by insurance. It would usually be classified as a cranial prosthetic. With that said, it all comes down to your specific insurance provider and whether they cover it. It is best to speak with your insurance provider and inquire whether that is the case and if so, how much they will cover.
+                        </p>
+                        <p>For more information, you can refer to our <a href="/wig-insurance/">wig insurance guide</a>.</p>
+                    </div>
+                </div>                
+
+            </div>
+        </div>
+    </div>
+    {{/if}}
+{{/if}}
+<script src="/content/js/category.min.js"></script>
+<script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+<!-- <script src="/content/js/infinite-scroll.pkgd.min.js"></script> -->
+<style>
+    .scroll_arrow {
+        display: none;
+        position: fixed;
+        bottom: 100px;
+        right: 100px;
+        background-color: #474747;
+        z-index: 11111;
+        padding: 10px;
+        cursor: pointer;
+    }
+    .cate1 svg {
+        fill: white;
+    }
+    .scroll_show {
+        display: block;
+    }
+</style>
+<script>
+        $('.scroll_arrow').on('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
+
+    $(window).scroll(function(){
+  var sticky = $('.page-sidebar nav');
+  let footer1 = $('.footer')
+let footer = $('.footer').offset().top
+let win = $(window).height()
+let full = footer-win
+  var bottom = $(window).height()  - footer1.height();
+
+      scroll = $(window).scrollTop();
+
+
+      if ($('.page-sidebar').length > 0) {
+
+            let ele = $('.page').offset().top
+
+      let ele1 = $('.header').height() +50
+      let ele2 = ele - ele1
+        if (scroll >= ele2) {
+                $('.page-sidebar').css('position', 'sticky')
+                $('.page-sidebar').css('top', `${ele1}px`)
+
+
+        }
+      }
+
+
+
+    if (scroll >= 2000) {
+        $('.scroll_arrow').addClass('scroll_show')
+    } else {
+        $('.scroll_arrow').removeClass('scroll_show')
+
+    }
+
+    });
+
+
+</script>
+
+
+
+
+{{/partial}}
+{{> layout/base}}

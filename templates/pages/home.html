@@ -1,0 +1,370 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+carousel: {{theme_settings.homepage_show_carousel}}
+blog:
+    recent_posts:
+        limit: 8
+---
+{{#partial "hero"}}
+{{#if carousel}}
+    <link rel="preload" as="image" href="/content/images/marketing/superevent/superevent12b.jpg">
+    <link rel="preload" as="image" href="/content/images/marketing/superevent/superevent5b.jpg">
+    <link rel="stylesheet" href="/content/css/homepage.banner.slide.min.css" />
+    <script src="/content/js/homepage.banner.nopopup.slide.min.js" defer></script>
+    <script src="/content/js/slick.min.js" defer></script>
+     {{> components/carousel}}
+         <style>
+        @media (min-width: 1440px) {
+            .home-banner {
+            height: 150px !important;
+        }
+        .home-banner1 {
+            height: 150px !important;
+        }
+        .home-banner2 {
+            height: 150px !important;
+        }
+        }
+
+    </style>
+{{/if}}
+    {{{snippet 'home_content'}}}
+{{/partial}}
+
+{{#partial "page"}}
+
+{{!--
+
+    {{#each shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+
+<div class="main full">
+    {{#if products.featured}}
+        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+    {{/if}}
+
+    {{#if products.top_sellers}}
+        {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+    {{/if}}
+
+    {{#if products.new}}
+        {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+    {{/if}}
+</div>
+
+
+--}}
+
+<!-- Digital Media Partner -->
+<div class="shogun-root" data-shogun-id="5fb41873b11d5e009d3d842b" data-shogun-site-id="fb8c6090-a908-45e2-8617-89b82d7a20e6" data-shogun-page-id="5fb41873b11d5e009d3d842b" data-shogun-page-version-id="6087225498982900db53ba2c" data-shogun-platform-type="big_commerce" data-shogun-variant-id="6087225498982900db53baa6" data-region="main">
+  <link rel="stylesheet" type="text/css" href="https://cdn.getshogun.com/shogun-font-awesome.min.css" />
+
+<link rel="stylesheet" type="text/css" href="https://cdn.getshogun.com/6087225498982900db53baa6.css" />
+
+
+<div class="shg-box-vertical-align-wrapper">
+    <div
+      class="shg-box shg-c    "
+      
+      id="s-b6a0fc56-048f-4bbe-88ba-ca10568a5f07"
+    >
+      <div class="shg-box-overlay"></div><div class="shg-box-content">
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="shg-c  " id="s-4cc2ec62-af49-4f1d-8ccc-fc56ba6fa927" >
+    <div class="shg-row" data-col-grid-mode-on="">
+      <div class="shg-c-lg-4 shg-c-md-4 shg-c-sm-4 shg-c-xs-12">
+  <div class="shg-c  " id="s-eee81b24-5301-42b8-b8f1-a892869687e8" >
+    <div class="shg-row" data-col-grid-mode-on="">
+      <div class="shg-c-lg-3 shg-c-md-3 shg-c-sm-3 shg-c-xs-12"><div id="s-bf8af6f0-3119-4f57-8a14-5687898ec0f2"  class="shg-c  ">
+  <div class="shogun-icon-wrapper">
+  
+    <div class="shg-fa shg-fa-map-marker shogun-icon"></div>
+  
+</div>
+
+</div>
+</div>
+      <div class="shg-c-lg-9 shg-c-md-9 shg-c-sm-9 shg-c-xs-12"><div id="s-a68377e4-b54c-4e88-af2e-19ccbd6e392a"  class="shg-c  ">
+  <div class="shg-rich-text shg-theme-text-content"><p>US Warehouse<br>
+3736 SW 30th Ave<br>
+Fort Lauderdale, FL 33312</p>
+<ul class="footer-info-list">
+<li><a href="tel:1-954-835-2288">1-954-835-2288(Global)</a></li>
+</ul></div>
+
+</div>
+</div>
+      
+      
+      
+      
+    </div>
+  </div>
+
+</div>
+      <div class="shg-c-lg-4 shg-c-md-4 shg-c-sm-4 shg-c-xs-12">
+  <div class="shg-c  " id="s-97fd0c2c-51b5-4e23-823d-118dcd52d379" >
+    <div class="shg-row" data-col-grid-mode-on="">
+      <div class="shg-c-lg-3 shg-c-md-3 shg-c-sm-3 shg-c-xs-12"><div id="s-79606cda-66ab-4b73-9473-ca5792ba5a02"  class="shg-c  ">
+  <div class="shogun-icon-wrapper">
+  
+    <div class="shg-fa shg-fa-phone-square shogun-icon"></div>
+  
+</div>
+
+</div>
+</div>
+      <div class="shg-c-lg-9 shg-c-md-9 shg-c-sm-9 shg-c-xs-12"><div id="s-e01aabfe-8397-48ed-aa2f-c845decdb42e"  class="shg-c  ">
+  <div class="shg-rich-text shg-theme-text-content"><p>Call/Text <a href="tel:1-866-814-7879">1-866-814-7879</a> English<br><a href="tel:1-800-801-0708">1-800-801-0708</a> Spanish & French<br>
+  Whatsapp <a href="https://wa.me/18668693477" target="_blank" rel="noopener">1-866-869-3477</a></p>
+</div>
+<ul class="footer-info-list">
+<li>GTA Appointment <a href="tel:1-905-917-1805">1-905-917-1805</a></li>
+</ul>
+
+</div>
+</div>
+      
+      
+      
+      
+    </div>
+  </div>
+
+</div>
+      
+        <div class="shg-c-lg-4 shg-c-md-4 shg-c-sm-4 shg-c-xs-12">
+  <div class="shg-c  " id="s-20f21ff5-0f51-4990-83e1-10ea269f4bc4" >
+    <div class="shg-row" data-col-grid-mode-on="">
+      <div class="shg-c-lg-3 shg-c-md-3 shg-c-sm-3 shg-c-xs-12"><div id="s-004021d7-b4da-4fb9-b872-5f2f63036943"  class="shg-c  ">
+  <div class="shogun-icon-wrapper">
+  
+    <div class="shg-fa shg-fa-map-marker shogun-icon"></div>
+  
+</div>
+
+</div>
+</div>
+      <div class="shg-c-lg-9 shg-c-md-9 shg-c-sm-9 shg-c-xs-12"><div id="s-7baa8070-2abe-4f11-b8a3-948990f9be8a"  class="shg-c  ">
+  <div class="shg-rich-text shg-theme-text-content"><p>Canada Warehouse<br>7295 Rapistan Ct<br>Mississauga, ON L5N5Z4<br>
+      <ul class="footer-info-list">
+<li><a href="tel:1-416-800-5056">1-416-800-5056 (Global)</a></li>
+</ul></div>
+
+</div>
+</div>
+      
+      
+      
+      
+    </div>
+  </div>
+
+</div>
+      
+      
+      
+      
+    </div>
+  </div>
+
+
+<script type="text/javascript" src="https://cdn.getshogun.com/6087225498982900db53baa6.js" async></script>
+
+</div>
+<div class="main full">
+  {{#if products.featured}}
+        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+    {{/if}} 
+</div>
+<!-- Digital Media Partner ends -->
+ <p></p>
+ <!-- Rick D. Start-->
+  <div class="shogun-root" data-shogun-id="61325f61f8f3e300b86424dc" data-shogun-site-id="fb8c6090-a908-45e2-8617-89b82d7a20e6" data-shogun-page-id="61325f61f8f3e300b86424dc" data-shogun-page-version-id="6132842a2eac3200acf59ce4" data-shogun-platform-type="big_commerce" data-shogun-variant-id="6132842a2eac3200acf59d6e" data-region="main">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:" />
+
+<link rel="stylesheet" type="text/css" href="https://cdn.getshogun.com/css-3/6132842a2eac3200acf59d6e.css" />
+<style>@media only screen and (max-width:767px){#s-d8e1b3b6-b8a0-431d-8ad1-d6d190d4fd93{padding:0 1rem}}</style>
+
+<div class="shg-box-vertical-align-wrapper">
+    <div
+      class="shg-box shg-c    "
+      
+      id="s-a17193e3-8326-4c45-bb06-d6d5fc82b50f"
+    >
+      <div class="shg-box-overlay"></div><div class="shg-box-content">
+        
+  <div class="shg-c  " id="s-d7799741-234d-41de-bb56-a943d00cbf29" >
+    <div class="shg-row" data-col-grid-mode-on="true">
+      <div class="shg-c-lg-6 shg-c-md-6 shg-c-sm-6 shg-c-xs-12"><div class="shg-box-vertical-align-wrapper">
+    <div
+      class="shg-box shg-c    "
+      
+      id="s-062511fe-a030-43d0-bb62-830babc14a65"
+    >
+      <div class="shg-box-overlay"></div><div class="shg-box-content">
+        <div id="s-e5c4d606-57d2-40e0-b391-ecb07498f544"  class="shg-c  ">
+  
+  <div class="shogun-video shogun-video-16x9">
+    
+    
+
+    
+
+    
+      <iframe
+        class="shogun-video-embed "
+        src="https://www.youtube.com/embed/iyadjdZ4oGo?start=0&end=0&autoplay=1&loop=0&mute=1&rel=0"
+        allowfullscreen
+        title="Embedded Youtube Video"
+      >
+      </iframe>
+    
+
+  </div>
+
+
+</div>
+
+      </div>
+    </div>
+  </div></div>
+      <div class="shg-c-lg-6 shg-c-md-6 shg-c-sm-6 shg-c-xs-12"><div class="shg-box-vertical-align-wrapper">
+    <div
+      class="shg-box shg-c    "
+      
+      id="s-9170aa2c-71ed-479a-8691-c36e2286637b"
+    >
+      <div class="shg-box-overlay"></div><div class="shg-box-content">
+        <div id="s-1f383ead-e107-4bde-a107-6e8fca4bb54d"  class="shg-c  ">
+  <div class="shg-rich-text shg-theme-text-content"><div><span style="color: #c98718; font-family: Poppins; font-size: 32px;">Rick D. <span style="font-size: 22px; font-weight: bold;">Verified Buyer</span></span></div></div>
+
+</div>
+<div id="s-e530a7ca-d01f-4ae5-852b-dbcd1de8c6d4"  class="shg-c  ">
+  <div class="shg-rich-text shg-theme-text-content"><p>At first it was really just for a fluke, I wasn't convinced that it was gonna work, I didn't think it would be worth trying. I approached it more as a joke. But when it finished I thought, “It looks pretty good. As a matter of fact, that looks really good!”</p></div>
+
+</div>
+
+  <div class="shg-c  " id="s-ea0b602f-1fca-4fdb-8afa-6fb80b586ccd" >
+    <div class="shg-row" data-col-grid-mode-on="">
+      <div class="shg-c-lg-4 shg-c-md-4 shg-c-sm-4 shg-c-xs-12"></div>
+      <div class="shg-c-lg-8 shg-c-md-8 shg-c-sm-8 shg-c-xs-12"><div class="shg-box-vertical-align-wrapper">
+    <div
+      class="shg-box shg-c    "
+      
+      id="s-8b4c2ca7-d2f9-4182-904f-2763bb29e770"
+    >
+      <div class="shg-box-overlay"></div><div class="shg-box-content">
+        <div id="s-7a95b699-d388-4821-899c-5acca0507e96"  class="shg-c  ">
+  <div class="shg-rich-text shg-theme-text-content"><div style="text-align: center;"><a href="/rick-s-experience-with-hair-systems-superhairpieces-testimonial" target="_blank" rel="noopener"><span style="font-size: 20px; color: #ffffff;">Watch Rick's Journey here</span></a></div></div>
+
+</div>
+
+      </div>
+    </div>
+  </div></div>
+      
+      
+      
+      
+    </div>
+  </div>
+
+
+      </div>
+    </div>
+  </div></div>
+      
+      
+      
+      
+    </div>
+  </div>
+
+
+      </div>
+    </div>
+  </div>
+<script type="text/javascript" src="https://cdn.getshogun.com/5/6132842a2eac3200acf59d6e.js" async></script>
+
+</div>
+
+
+    <!-- Rick D. End-->
+    
+   <!-- from client -->
+<link rel="stylesheet" href="/content/css/stamped-frontpage/style.css">
+<div class="customer-review-wrap">
+    <div customer-review-title>Customer Show</div>
+    <div customer-review-section>    
+    </div>
+    <div customer-review-button>
+        <a href="https://superhairpieces.ca/reviews-and-testimonials/" target="_blank">View more</a>
+    </div>    
+</div>
+<script src="/content/js/stamped-frontpage/script.js"></script>
+
+
+ <!-- end from client -->
+ <style>    
+    .blog-container{padding-bottom:2rem;visibility: hidden;}a.blog-wrapper{text-align:center;text-decoration:none;margin:0 2rem 1rem}.blog-wrapper:hover{box-shadow:0 0 32px 0 #efefef;transform:translateY(-5px)}.blog-wrapper img{width:100%}.blog-wrapper .blog-card-content{padding:1rem}.blog-card-content .blog-date{color:#757575;font-weight:200;margin-bottom:1rem}.blog-card-content .blog-title{font-size:1.1rem;margin-bottom:1rem;font-weight:600}.blog-card-content .blog-summary{text-align:justify;padding:0 .5rem;position:relative;overflow:hidden}.blog-card-content .blog-summary::after{content:"";background-image:linear-gradient(rgba(255,255,255,0.6),white,rgba(255,255,255,0.7));z-index:99;position:absolute;bottom:-2rem;left:0;width:100%;height:5rem}@media only screen and (max-width:1024px){.blog-wrapper .blog-card-content{padding:.8rem}}@media only screen and (max-width:800px){.blog-wrapper .blog-card-content{padding:.5rem}}@media only screen and (max-width:375px){.blog-wrapper .blog-card-content{padding:.3rem}}
+</style>
+<div class="blog-container">        
+    <h3 class="page-heading">Our blogs</h3>
+    <div        
+        data-slick='{
+            "dots": true,                
+            "slidesToShow":4,
+            "slidesToScroll": 1,
+            "lazyLoad": "anticipated",                
+            "responsive": [
+                {
+                    "breakpoint": 1600,
+                    "settings": {                    
+                        "slidesToShow": 3
+                    }
+                },                
+                {
+                    "breakpoint": 1024,
+                    "settings": {
+                        "slidesToShow": 2
+                    }
+                },
+                {
+                    "breakpoint": 768,
+                    "settings": {
+                        "slidesToShow": 1
+                    }
+                }        
+            ]
+        }'
+    >
+        {{#each blog.recent_posts}}
+        <a class="blog-wrapper" href="{{url}}" target="_blank">
+            <div>
+                <div>
+                    <img src="{{getImage thumbnail}}" alt="{{thumbnail.alt}}" title="{{thumbnail.alt}}">
+                </div>
+                <div class="blog-card-content">                        
+                    <div class="blog-title">{{title}}</div>                        
+                </div>
+            </div>
+        </a>
+        {{/each}}
+    </div>
+</div>
+<script>window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){document.querySelector(".blog-container").style.visibility="visible"},1e3)});</script>
+
+{{/partial}}
+{{> layout/base}}
