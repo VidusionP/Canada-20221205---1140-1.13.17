@@ -989,3 +989,37 @@ iframe {
         }
     }
     
+    ///Badge Centering
+    /// 
+    .footer { 
+        padding-bottom: 4rem;
+    }
+    
+    //Remove when payment icons are showing
+    .footer-info-col.footer-newsletter-col {
+        display: none;
+    }
+    
+    
+    
+    .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    @media (min-width: 825px) {
+    
+        .footer-bottom {
+            display: block;
+            position: relative;
+        }
+        .footer-copyright {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+        section.footer-bottom {
+            display: block !important;
+        }
+    }
