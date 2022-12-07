@@ -1,7 +1,12 @@
 <div class="previewCart">
     {{#if cart.items.length}}
         <ul class="previewCartList">
+            {{#each cart.items}}
+                <span class="cart_pids" style="display: none;">{{product_id}}</span>
+                <span class="cart_quant" style="display: none;">{{quantity}}</span>
+            {{/each}}
             {{#each (limit cart.items 4)}}
+
                 <li class="previewCartItem">
                     <div class="previewCartItem-image">
                         {{#if type '==' 'GiftCertificate'}}
@@ -63,3 +68,11 @@
         </div>
     {{/if}}
 </div>
+<script>
+    let productIDS = []
+    $('.cart_pids').each((i, item) => {
+        console.log(i.innerHTML)
+    })
+
+ 
+</script>
