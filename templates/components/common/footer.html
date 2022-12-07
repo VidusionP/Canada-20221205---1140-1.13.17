@@ -64,8 +64,12 @@ function iconUnPop(){
         {{/if}}
         <section class="footer-info">
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
-                <h5 class="footer-info-heading">{{lang 'footer.navigate'}}</h5>
+                <!-- <h5 class="footer-info-heading">{{lang 'footer.navigate'}}</h5> -->
+                <div onclick="openFAQ(this)">
+                    <h5 class="footer-info-heading page-button">{{lang 'footer.navigate'}}</h5>
+                </div>
                 <ul class="footer-info-list">
+                    <div class="footer-info-list2">
                      <li>
                            <a href="/men/" target="_blank">Men's Toupee</a>
                        </li>
@@ -99,12 +103,16 @@ function iconUnPop(){
                        <li>
                            <a href="https://superhairpieces.ca/sitemap.php" target="_blank">Sitemap</a>
                        </li>
+                       </div>
                 </ul>
             </article>
 
            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
-                <h5 class="footer-info-heading">Get to know</h5>
+                <div onclick="openFAQ(this)">
+                    <h5 class="footer-info-heading page-button">Get to know</h5>
+                </div>
                <ul class="footer-info-list">
+                <div class="footer-info-list2">
                    
                        <li>
                            <a href="/reviews-and-testimonials/" target="_blank">Reviews from Verified Buyers</a>
@@ -130,6 +138,7 @@ function iconUnPop(){
                        <li>
                            <a href="/diversity/" target="_blank">Inclusion & Diversity</a>
                        </li>
+                       </div>
                </ul>
                <!-- <h5 class="footer-info-heading">{{lang 'footer.categories'}}</h5>
                 <ul class="footer-info-list">
@@ -142,16 +151,46 @@ function iconUnPop(){
             
               
             </article>
+            {{#if settings.address}}
+            <article class="footer-info-col footer-info-col--small footer-info-col-desktop" data-section-type="storeInfo">
+                <div onclick="openFAQ(this)">
+                    <h5 class="footer-info-heading page-button">Global</h5>
+                </div>
+                <div style="max-height:0px; overflow:hidden; transition: max-height .5s ease-in-out; border-bottom: 1px solid #494949;">
+                    <div class="footer-info-list2" style="text-align: start;">
 
+                    <h5 style="padding-top: unset;" class="footer-info-heading">Canada<!-- {{lang 'footer.info'}} --></h5>
+                    <address>{{nl2br settings.address}}<br>1-416-800-5056</address>
+                    <h5 class="footer-info-heading">United States</h5>
+                    <address>3736 SW 30th Ave<br>
+                       Fort Lauderdale FL 33312<br>
+                       1-954-835-2288</address>
+                       <a href="https://www.superhairpieces.com" target="_blank" style="text-decoration: none;"><span style="color:#ababab">superhairpieces.com</span></a><br>
+                    <h5 class="footer-info-heading">Europe</h5>
+                    <address>Trompenburgstraat 2c<br>
+                    1079 TX Amsterdam<br>
+                    the Netherlands<br>+31(20)8096580<br>
+                    </address>
+                    <a href="https://superhairpieces.fr" target="_blank" style="text-decoration: none;"><span style="color:#ababab">superhairpieces.fr (Français/English)</span></a><br>
+                    <a href="https://superhairpieces.es" target="_blank" style="text-decoration: none;"><span style="color:#ababab">superhairpieces.es (Español)</span></a><br>
+                    <a href="https://superhairpieces.nl" target="_blank" style="text-decoration: none;"><span style="color:#ababab">superhairpieces.nl (Nederlands)</span></a>
+                    {{#if settings.phone_number}}
+                        <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
+                    {{/if}}
+                    </div>
+                </div>
+
+            </article>
+            {{/if}}
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-socials">
-                <h5 class="footer-info-heading">Follow Us</h5>
-                <ul class="footer-info-list">
+                <h5 class="footer-info-heading footer-info-heading-mobile">Follow Us</h5>
+                <ul class="footer-info-list footer-info-list-call footer-info-social">
                     {{> components/common/social-links}}
                 </ul>
                 <div><h3 class="footer-info-heading">Official Global</h5>
                 <a href="https://www.superhairpieces.com" target="_blank" color="inherit" style="text-decoration: none;"><span style="color:#ababab">Superhairpieces.com</span></a></div>
                 <div><h5 class="footer-info-heading">Call or text</h5></div>
-                <ul class="footer-info-list">
+                <ul class="footer-info-list footer-info-list-call footer-info-num">
                     <li><a href="tel:1-416-800-5056">1-416-800-5056 Canada</a></li>
                     <li><a href="tel:1-866-814-7879">1-866-814-7879 Toll Free</a></li>
                     <li><a href="tel:1-800-801-0708">1-800-801-0708 French & Spanish</a></li>
@@ -175,7 +214,7 @@ function iconUnPop(){
             {{/and}}
 --}}
             {{#if settings.address}}
-            <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
+            <article class="footer-info-col footer-info-col--small footer-info-mobile" data-section-type="storeInfo">
                 <h5 class="footer-info-heading">Canada<!-- {{lang 'footer.info'}} --></h5>
                 <address>{{nl2br settings.address}}<br>1-416-800-5056</address>
                 <h5 class="footer-info-heading">United States</h5>
@@ -261,3 +300,20 @@ function iconUnPop(){
          </section>
     </div>
 </footer>
+<script>
+    function openFAQ(x) {
+    let setheight = x.nextElementSibling.children[0].offsetHeight
+    let checkClass = x.nextElementSibling.classList
+    if (checkClass.contains('brand-add')) {
+        checkClass.remove('brand-add')
+        x.children[0].classList.remove('page-button1')
+        // x.classList.remove('page-tab-highlight')
+        x.nextElementSibling.style.maxHeight = '0'
+    } else {
+        checkClass.add('brand-add')
+        x.children[0].classList.add('page-button1')
+        // x.classList.add('page-tab-highlight')
+        x.nextElementSibling.style.maxHeight = setheight + 'px'
+    }
+}
+</script>
