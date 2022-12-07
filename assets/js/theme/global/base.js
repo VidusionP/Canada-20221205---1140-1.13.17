@@ -30,6 +30,9 @@ export default function () {
                         $('.popup-country-overlay').on('click', function () {
                             $('.popup-country').hide();
                         });
+                        $('.popup-country-content svg').on('click', function() {
+                            $('.popup-country').hide()
+                        });
                     }, 3500);
                 } else if (data.loc == 'FR') {
                     setTimeout(function () {
@@ -48,6 +51,9 @@ export default function () {
                         $('.popup-country-lang2').attr('href', '//superhairpieces.ca');
                         $('.popup-country-overlay').on('click', function () {
                             $('.popup-country').hide();
+                        });
+                        $('.popup-country-content svg').on('click', function() {
+                            $('.popup-country').hide()
                         });
                     }, 3500);
                 } else if (data.loc == 'NL') {
@@ -68,6 +74,9 @@ export default function () {
                         $('.popup-country-overlay').on('click', function () {
                             $('.popup-country').hide();
                         });
+                        $('.popup-country-content svg').on('click', function() {
+                            $('.popup-country').hide()
+                        });
                     }, 3500);
                 } else if (data.loc != 'CA') {
                     setTimeout(function () {                            
@@ -84,6 +93,9 @@ export default function () {
                         $('.popup-country-lang2').attr('href', '//superhairpieces.com');
                         $('.popup-country-overlay').on('click', function () {
                             $('.popup-country').hide();
+                        });
+                        $('.popup-country-content svg').on('click', function() {
+                            $('.popup-country').hide()
                         });
                     }, 3500);
                 } 
