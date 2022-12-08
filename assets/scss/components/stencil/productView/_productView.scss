@@ -53,7 +53,12 @@
 
     @include lazy-loaded-padding('product_size');
 }
-
+.productView-thumbnails {
+    display: none;
+}
+.productView-thumbnails.slick-initialized {
+    display: block;
+}
 .productView-thumbnails {
     @include u-listBullets("none");
     @include grid-row($behavior: "nest");

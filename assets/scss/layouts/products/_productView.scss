@@ -488,3 +488,40 @@
     font-size: 1.2rem;
     font-style: italic;
 }
+.thumbnail-image {
+    width:fit-content; 
+    position: absolute; 
+    bottom: 60px;
+    right: 50%;
+    transform: translate(50%, 0); 
+    // border:1px solid black;
+    box-shadow: 0px 9px 15px #888888;
+    padding: 3px;
+    background: white;
+    animation: append-thumbnail .6s linear;
+
+    &::before {
+        content:""; 
+        animation: append-thumbnail .6s linear;
+
+        position: absolute; 
+        bottom: -10px; 
+        width: 0; 
+        height: 0; 
+        right: 50%;
+        transform: translate(50%);
+        border-top:10px solid rgb(255, 255, 255); 
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+    }
+
+}
+
+@keyframes append-thumbnail {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

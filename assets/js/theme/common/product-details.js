@@ -197,6 +197,9 @@ export default class ProductDetails {
             this.updateProductAttributes(productAttributesData);
             this.updateView(productAttributesData);
             this.updateDeliverTime(productAttributesData);
+            if ($(window).width() < 920) {
+                this.updateThumbnailView(productAttributesData, event)
+            }
         });
     }
 
@@ -1798,7 +1801,29 @@ export default class ProductDetails {
             }
         });
     }
+    updateThumbnailView(data, event) {
+        const image1 = data.image
 
+        const e = event.target
+        if (image1) {
+            $('.thumbnail-image').remove()
+            const mainImageUrl = utils.tools.image.getSrc(
+                image1.data,
+                this.context.themeSettings.product_size,
+            );
+
+            $(e).parent().append(`
+                <div class="thumbnail-image">
+                    <img style="width: 250px; max-width: unset;" src=${mainImageUrl}>
+                </div>
+            `)
+          
+        $('.container').on('click', function() {
+            $('.thumbnail-image').remove()
+            
+        })
+        }
+    }
     disableAttribute($attribute, behavior, outOfStockMessage) {
         if (this.getAttributeType($attribute) === 'set-select') {
             return this.disableSelectOptionAttribute($attribute, behavior, outOfStockMessage);
