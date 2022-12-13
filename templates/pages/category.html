@@ -15,6 +15,41 @@ category:
 {{/partial}}
 
 {{#partial "page"}}
+<style>
+    
+    .sct-mobile-wrap2 {
+        position: absolute;
+    background-color: #fff;
+    height: 100vh;
+    z-index: 11112;
+    top: -83px;
+    left: -100%;
+    width: 85%;
+    transition: 0.5s, z-index;
+    padding: 25px;
+    display: block;
+    }
+    .category-name[has-sub1]::after {
+        content: "✕";
+        width: 10px;
+        top: 50%;
+
+        transform: rotate(45deg) translateX(-50%);
+
+        position: absolute;
+        margin: -0.525rem 1.25rem 0;
+        font-size: 1rem;
+        font-weight: 800;
+    }
+    @media (min-width: 801px) {
+    .category-name[has-sub1]::after {
+        display: none;
+    }
+    .sct-mobile-wrap2 {
+        display: none;
+}
+    }
+</style>
 <link rel="stylesheet" href="/content/css/category.min.css">
 {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 {{#if category.image}}
@@ -24,9 +59,18 @@ category:
     <i class="icon cate1" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-up" /></svg></i>
 </div>
 
-<h1 class="page-heading category-heading">
-    <span class="category-name" {{#if category.subcategories}}has-sub{{/if}}>{{category.name}}</span>
-</h1>
+{{#if category.name '==' 'Supplies'}}
+    <h1 class="page-heading category-heading">
+        <span style="position: relative;" class="category-name" {{#if category.subcategories}}has-sub1{{/if}}>{{category.name}}</span>
+    </h1>
+    {{>components/category/subcategories}}
+
+{{else}}
+    <h1 class="page-heading category-heading">
+        <span class="category-name" {{#if category.subcategories}}has-sub{{/if}}>{{category.name}}</span>
+    </h1>
+    {{>components/category/subcategories}}
+{{/if}}
 {{>components/category/subcategories}}
 <div class="category-description-wrap-top">
 {{{category.description}}}
@@ -512,7 +556,7 @@ category:
     </div>
     {{/if}}
 {{/if}}
-<script src="/content/js/category.min.js"></script>
+<!-- <script src="/content/js/category.min.js"></script> -->
 <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
 <!-- <script src="/content/js/infinite-scroll.pkgd.min.js"></script> -->
 <style>
@@ -534,6 +578,35 @@ category:
     }
 </style>
 <script>
+// function toggleAccordion(){"false"==this.getAttribute("aria-expanded") ? this.setAttribute("aria-expanded", "true") : this.setAttribute("aria-expanded", "false");}window.addEventListener("DOMContentLoaded", (t)=>{document.querySelectorAll(".faq-accordion button").forEach((t)=> t.addEventListener("click", toggleAccordion)), $(".category-heading [has-sub], .sct-mobile-wrap .top, .sct-mobile-wrap [action=close]").on("click", function (){$(window).width() <=800 && $(".sct-mobile-wrap").toggle();}), $("#sort").on("change", function (){console.log(new Date()), $(this).css({"background-image": ""});}), $(".c-search-wrap input").on("click", function (){$(window).width() < 658 && ($(".c-search-wrap").parents(".pl-supply-option-wrap").attr("search", "open"), $(this).focus());}), $(".c-search-wrap input").on("keyup", function (t){$(this).val().length > 0 ? ($(this).parent().find("img").prop("src", "/content/images/common/search1.svg"), $(window).width() >=658 && $(this).parent().find("button[pc]").show(), 13===t.keyCode && (location.href="/brands?kw=" + $(this).val())) : ($(this).parent().find("img").prop("src", "/content/images/common/search.svg"), $(this).parent().find("button[pc]").hide()), "mobile"==$(this).parents(".c-search-wrap").attr("for") ? $(".c-search-wrap[for=pc] input").val($(this).val()) : $(".c-search-wrap[for=mobile] input").val($(this).val());}), $(".c-search-wrap button[action=search]").on("click", function (){location.href="/brands?kw=" + $(this).val();}), $(".c-search-clear").on("click", function (){$(".c-search-wrap").parents(".pl-supply-option-wrap").attr("search", "close"), $(".c-search-wrap input").val("");}), $(".category-heading [has-sub1]").on("click", function (){if ($(window).width() <=800){$('html, body').css({overflow: 'hidden', height: '100%'}); $(".shortcut-overlay").css("display", "block"); $(".sct-mobile-wrap2").css('left', '0');}}), $('.shortcut-overlay').on('click', function(){$('html, body').css({overflow: 'unset', height: 'auto'}); $(".sct-mobile-wrap2").css('left', '-100%');}), $('.shortcut-cateClose').on('click', function(){$('html, body').css({overflow: 'unset', height: 'auto'}); $(".sct-mobile-wrap2").css('left', '-100%');})});
+//     window.addEventListener("DOMContentLoaded", (t) => {
+//         $(".category-heading [has-sub1]").on("click", function () {
+//             if ($(window).width() <= 800) {
+//                 $('html, body').css({
+//                 overflow: 'hidden',
+//                 height: '100%'
+//             });
+//             $(".shortcut-overlay").css("display", "block");
+//             $(".sct-mobile-wrap2").css('left', '0');
+
+//             }
+//         }),
+//         $('.shortcut-overlay').on('click', function() {
+//             $('html, body').css({
+//                 overflow: 'unset',
+//                 height: 'auto'
+//             });
+//             $(".sct-mobile-wrap2").css('left', '-100%');
+//         }),
+//         $('.shortcut-cateClose').on('click', function() {
+//             $('html, body').css({
+//                 overflow: 'unset',
+//                 height: 'auto'
+//             });
+//             $(".sct-mobile-wrap2").css('left', '-100%');
+//         })
+
+// });
         $('.scroll_arrow').on('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
     })
