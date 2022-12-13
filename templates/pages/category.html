@@ -15,6 +15,40 @@ category:
 {{/partial}}
 
 {{#partial "page"}}
+<style>
+    .sct-mobile-wrap2 {
+        position: absolute;
+    background-color: #fff;
+    height: 100vh;
+    z-index: 11112;
+    top: -83px;
+    left: -100%;
+    width: 85%;
+    transition: 0.5s, z-index;
+    padding: 25px;
+    display: block;
+    }
+    .category-name[has-sub1]::after {
+        content: "✕";
+        width: 10px;
+        top: 50%;
+
+        transform: rotate(45deg) translateX(-50%);
+
+        position: absolute;
+        margin: -0.525rem 1.25rem 0;
+        font-size: 1rem;
+        font-weight: 800;
+    }
+    @media (min-width: 801px) {
+    .category-name[has-sub1]::after {
+        display: none;
+    }
+    .sct-mobile-wrap2 {
+        display: none;
+}
+    }
+</style>
 <link rel="stylesheet" href="/content/css/category.min.css">
 {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 {{#if category.image}}
@@ -24,9 +58,18 @@ category:
     <i class="icon cate1" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-up" /></svg></i>
 </div>
 
-<h1 class="page-heading category-heading">
-    <span class="category-name" {{#if category.subcategories}}has-sub{{/if}}>{{category.name}}</span>
-</h1>
+{{#if category.name '==' 'Supplies'}}
+    <h1 class="page-heading category-heading">
+        <span style="position: relative;" class="category-name" {{#if category.subcategories}}has-sub1{{/if}}>{{category.name}}</span>
+    </h1>
+    {{>components/category/subcategories}}
+
+{{else}}
+    <h1 class="page-heading category-heading">
+        <span class="category-name" {{#if category.subcategories}}has-sub{{/if}}>{{category.name}}</span>
+    </h1>
+    {{>components/category/subcategories}}
+{{/if}}
 {{>components/category/subcategories}}
 <div class="category-description-wrap-top">
 {{{category.description}}}
@@ -534,6 +577,34 @@ category:
     }
 </style>
 <script>
+    window.addEventListener("DOMContentLoaded", (t) => {
+        $(".category-heading [has-sub1]").on("click", function () {
+            if ($(window).width() <= 800) {
+                $('html, body').css({
+                overflow: 'hidden',
+                height: '100%'
+            });
+            $(".shortcut-overlay").css("display", "block");
+            $(".sct-mobile-wrap2").css('left', '0')
+
+            }
+        })
+        $('.shortcut-overlay').on('click', function() {
+            $('html, body').css({
+                overflow: 'unset',
+                height: 'auto'
+            });
+            $(".sct-mobile-wrap2").css('left', '-100%')
+        })
+        $('.shortcut-cateClose').on('click', function() {
+            $('html, body').css({
+                overflow: 'unset',
+                height: 'auto'
+            });
+            $(".sct-mobile-wrap2").css('left', '-100%')
+        })
+
+});
         $('.scroll_arrow').on('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
     })

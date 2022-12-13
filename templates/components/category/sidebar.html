@@ -6,7 +6,53 @@
 <nav>
 {{else}}
 {{/if}}
+    {{#if category.name '==' 'Supplies'}}
+        <div>
+            {{#each categories}}
+                {{#if name '==' 'Supplies'}}
+                <div id="categoryName" style="display:none;">{{name}}</div>
+                    {{#each children}}
+                    <div class="navList-block" id="{{name}}" style="border-top: 1px solid #A9A9A9;max-width: 250px; padding: 10px 0;">
+                        <a class='navList-action'href="{{url}}" alt="{{name}}" title="{{name}}">
+                            <h5 style="padding: 10px 0;  color:black; font-weight:600;margin-top: unset; margin-bottom: unset;">{{name}}</h5>
+                        </a>
+                            {{#if children.length '>' 0}}
+                                {{#each children}}
+                                <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">
+                                    <h6 style="color:black;margin-top: unset; margin-bottom: unset;">{{name}}</h6>
+                                </a>
+                                {{/each}}
+                            {{/if}}
+                    </div>
 
+                    {{/each}}
+                    <div style="border-top: 1px solid #A9A9A9; max-width: 250px; padding: 10px 0;">
+                        <a class='navList-action'href="/brands" alt="Brands" title="Brands">
+                            <h5 style="padding: 10px 0; color:black; font-weight:600;margin-top: unset; margin-bottom: unset;">Shop Brands</h5>
+                        </a>
+                        <a class="navList-action" href="/walker-tape/" alt="Walker Tape" title="Walker Tape">
+                            <h6 style="margin-top: unset; margin-bottom: unset;">Walker</h6>
+                        </a>
+                        <a class="navList-action" href="/Professional-Hair-Labs/" alt="Professional Labs" title="Professional Labs">
+                            <h6 style="margin-top: unset; margin-bottom: unset;">Professional Hair Labs</h6>
+                        </a>
+                        <a class="navList-action" href="/vapon-tapes-adhesives-solvents/" alt="Vapon" title="Vapon">
+                            <h6 style="margin-top: unset; margin-bottom: unset;">Vapon</h6>
+                        </a>
+                        <a class="navList-action" href="/sunshine-tape/" alt="Sunshine" title="Sunshine">
+                            <h6 style="margin-top: unset; margin-bottom: unset;">Sunshine</h6>
+                        </a>
+                        <a class="navList-action" href="/premier-products-inc-ppi/" alt="PPI" title="PPI">
+                            <h6 style="margin-top: unset; margin-bottom: unset;">PPI</h6>
+                        </a>
+                        <a class="navList-action" href="/brands" alt="More Brands" title="More Brands">
+                            <h6 style="margin-top: unset; margin-bottom: unset; text-decoration: underline; color: rgb(20, 56, 216);">More Brands</h6>
+                        </a>
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
+    {{else}}
         {{#if category.subcategories}}
         <div class="sidebarBlock">
             <h5 class="sidebarBlock-heading">{{category.name}}</h5>
@@ -19,6 +65,8 @@
             </ul>
         </div>
         {{/if}}
+    {{/if}}
+
     
         {{#if category.products}}
             {{#if category.faceted_search_enabled}}
@@ -35,6 +83,19 @@
         
 {{#if category.subcategories}}
 </nav>
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        if ($('#categoryName').html() == 'Supplies') {
+            if ($(window).width() > 801 && $(window).width() < 1730) {
+                $('.page-sidebar nav').css({maxHeight: `70vh`, overflow: 'auto'})
+
+            } else {
+                $('.page-sidebar nav').css({maxHeight: `84vh`, overflow: 'auto'})
+
+            }
+        }
+    })
+</script>
 </aside>
 {{else if category.products}}
 </nav>

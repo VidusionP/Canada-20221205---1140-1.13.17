@@ -1,5 +1,62 @@
 {{#if category.subcategories}}
-<div class="sct-mobile-wrap {{#if (length category.subcategories) '>' 9}}overflow{{/if}}">
+    {{#if category.name '==' 'Supplies'}}
+    <span class="shortcut-overlay"></span>
+    <div class="sct-mobile-wrap2">
+        <div>
+            {{#each categories}}
+                {{#if name '==' 'Supplies'}}
+                <div class="shortcut-cateClose">
+                    ×
+            </div>
+            <div style="overflow: auto; max-height: 75vh;">
+                <div id="categoryName" style="display:none;">{{name}}</div>
+                {{#each children}}
+                <div class="navList-block" id="{{name}}" style="border-top: 1px solid #A9A9A9;max-width: 250px; padding: 10px 0;">
+                    <a class='navList-action'href="{{url}}" alt="{{name}}" title="{{name}}">
+                        <h5 style="padding: 10px 0;  color:black; font-weight:600;margin-top: unset; margin-bottom: unset;">{{name}}</h5>
+                    </a>
+                    {{#if children.length '>' 0}}
+                        {{#each children}}
+                        <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">
+                            <h6 style="color:black;margin-top: unset; margin-bottom: unset;">{{name}}</h6>
+                        </a>
+                        {{/each}}
+                    {{/if}}
+                </div>
+
+                {{/each}}
+                <div style="border-top: 1px solid #A9A9A9; max-width: 250px; padding: 10px 0;">
+                    <a class='navList-action'href="/brands" alt="Brands" title="Brands">
+                        <h5 style="padding: 10px 0; color:black; font-weight:600;margin-top: unset; margin-bottom: unset;">Shop Brands</h5>
+                    </a>
+                    <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">
+                        <h6 style="margin-top: unset; margin-bottom: unset;">Walker</h6>
+                    </a>
+                    <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">
+                        <h6 style="margin-top: unset; margin-bottom: unset;">Professional Labs</h6>
+                    </a>
+                    <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">
+                        <h6 style="margin-top: unset; margin-bottom: unset;">Vapon</h6>
+                    </a>
+                    <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">
+                        <h6 style="margin-top: unset; margin-bottom: unset;">Sunshine</h6>
+                    </a>
+                    <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">
+                        <h6 style="margin-top: unset; margin-bottom: unset;">PPI</h6>
+                    </a>
+                    <a class="navList-action" href="/brands" alt="More Brands" title="More Brands">
+                        <h6 style="margin-top: unset; margin-bottom: unset; text-decoration: underline; color: rgb(20, 56, 216);">More Brands</h6>
+                    </a>
+                </div>
+            </div>
+
+                {{/if}}
+            {{/each}}
+        </div>
+
+    </div>
+    {{else}}
+    <div class="sct-mobile-wrap {{#if (length category.subcategories) '>' 9}}overflow{{/if}}">
     <span class="top">{{category.name}}</span>
     <div class="sct-mobile-content-wrap">
         {{#each category.subcategories}}                
@@ -7,5 +64,6 @@
         {{/each}}
     </div>
     <span action="close"><img src="/content/images/common/close.svg" alt=""></span>
-</div>
+    </div>
+    {{/if}}
 {{/if}}
