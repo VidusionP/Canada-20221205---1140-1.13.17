@@ -255,12 +255,23 @@
                     {{/if}}
                 {{/each}} -->
                     <a href="/promotions-for-men/"  {{#contains category.url '/promotions-for-men/'}}class='clicked'{{/contains}}>All Items</a>
-                    <a href="/price-drop-for-mens-hair-pieces/" {{#contains category.url '/price-drop-for-mens-hair-pieces/'}}class='clicked'{{/contains}}>Price Drop</a>
+                    {{#each categories}}
+                    {{#if name '==' 'Men'}}
+                        {{#each children}}
+                            {{#if name '==' 'Promotions'}}
+                                {{#each children}}
+                                    {{#if name '==' 'On Sale'}}
+                                        {{#each children}}
+                                        <a href="{{url}}"  {{#contains ../../../../../../../../../category.url url}}class='clicked'{{/contains}}>{{name}}</a>
+                                        {{/each}}
+                                    {{/if}}
+                                {{/each}}
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+                {{/each}}
 
-                    <a href="/men/promotions/on-sale/10-off/" {{#contains category.url '/men/promotions/on-sale/10-off/'}}class='clicked'{{/contains}}>10% OFF</a>
 
-                    <a href="/men/promotions/on-sale/20-off/" {{#contains category.url '/men/promotions/on-sale/20-off/'}}class='clicked'{{/contains}}>$20 OFF</a>
-                    <a href="/men/promotions/on-sale/50-off/" {{#contains category.url '/men/promotions/on-sale/50-off/'}}class='clicked'{{/contains}}>$50 OFF</a>
                 </div>
             </div>
             
@@ -650,11 +661,22 @@
                 {{#if breadcrumbs.[3].name '==' 'On Sale'}}
                 <div class="shortcut-cate">
                     <a href="/promotions-for-women/"  {{#contains category.url '/promotions-for-women/'}}class='clicked'{{/contains}}>All Promotions</a>
-                    <a href="/price-drop-for-womens-hair-pieces/" {{#contains category.url '/price-drop-for-womens-hair-pieces/'}}class='clicked'{{/contains}}>Price Drop</a>
-                    <a href="/women/promotions/on-sale/15-off/" {{#contains category.url '/women/promotions/on-sale/15-off/'}}class='clicked'{{/contains}}>15% OFF</a>
-                    <a href="/women/promotions/on-sale/50-off/" {{#contains category.url '/women/promotions/on-sale/50-off/'}}class='clicked'{{/contains}}>$50 OFF</a>
-                    <a href="/women/promotions/on-sale/90-off/" {{#contains category.url '/women/promotions/on-sale/90-off/'}}class='clicked'{{/contains}}>$90 OFF</a>
-                    <a href="/women/promotions/on-sale/extensions" {{#contains category.url '/women/promotions/on-sale/extensions'}}class='clicked'{{/contains}}>Extensions Sales</a>
+                    {{#each categories}}
+                        {{#if name '==' 'Women'}}
+                            {{#each children}}
+                                {{#if name '==' 'Promotions'}}
+                                    {{#each children}}
+                                        {{#if name '==' 'On Sale'}}
+                                            {{#each children}}
+                                                <a href="{{url}}"  {{#contains ../../../../../../../../../category.url url}}class='clicked'{{/contains}}>{{name}}</a>
+                                            {{/each}}
+                                        {{/if}}
+                                    {{/each}}
+                                {{/if}}
+                            {{/each}}
+                        {{/if}}
+                    {{/each}}
+
                 </div>
                 {{/if}}
             {{/lengthEqual}}
