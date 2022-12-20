@@ -1,5 +1,16 @@
 <div class="previewCart">
     {{#if cart.items.length}}
+
+
+    <div class="cart-subtotal">{{cart.sub_total.value}}</div>
+    <div class="freeShipping">
+        <div class="freeShipping-mainBar">
+            <div class="freeShipping-sideBar"></div>
+        </div>
+        <div class="freeShipping-text"></div>
+    </div>
+
+    
         <ul class="previewCartList">
             {{#each cart.items}}
                 <span class="cart_pids" style="display: none;">{{product_id}}</span>
@@ -70,7 +81,6 @@
 </div>
 <script>
     let productIDS = []
-
         $('.cart_pids').each((i, item) => {
         console.log(item.innerHTML)
     })

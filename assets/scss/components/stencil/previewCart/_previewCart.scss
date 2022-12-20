@@ -104,3 +104,52 @@
         display: block;
     }
 }
+
+
+.cart-subtotal {
+    display: none;
+}
+
+.freeShipping {
+    margin: 0px 20px;
+    border-bottom: 1px solid gray;
+    padding: 20px 0;
+
+}
+.freeShipping-mainBar {
+    width: 100%;
+    background-color: rgb(228, 228, 228);
+    height: 20px;
+    position: relative;
+}
+
+.freeShipping-sideBar {
+    background-color: green;
+    width: 0%;
+    height: 20px;
+    font-size: 13px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.freeShipping-text{
+    margin-top: 10px;
+    color: rgb(116, 116, 116);
+}
+.zeroShipping {
+    position: absolute;
+    margin-left: auto;
+    top: 0;
+    margin-right: auto;
+    font-size: 13px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.priceLeft {
+    color: $color-primary;
+    font-weight: 600;
+}

@@ -14,10 +14,33 @@ export default function () {
     const $cartDropdown = $('#cart-preview-dropdown');
     const $cartLoading = $('<div class="loadingOverlay"></div>');
 
+    function freeShippingLabel() {
+        const $freeShip = 150;
+        const $subTotal = Number($('.cart-subtotal').html());
+        const $bar1 = $('.freeShipping-mainBar');
+        const $bar2 = $('.freeShipping-sideBar');
+        const $text = $('.freeShipping-text');
+        if ($subTotal >= $freeShip) {
+            $($bar2).css('width', '100%');
+            $($bar2).append('100%');
+            $($text).append("Congratulations! You've got free shipping.");
+        } else if ($subTotal === 0) {
+            $($text).append(`Only <span class="priceLeft">$${$freeShip}</span> away from Free Shipping!`);
+            $($bar2).css('width', `${$subTotal / $freeShip * 100}%`);
+            $($bar1).append('<span class=zeroShipping>0%</span>');
+        } else {
+            $($text).append('Only <span class="priceLeft"></span> away from Free Shipping!');
+            $($bar2).append(`${($subTotal / $freeShip * 100).toFixed()}%`);
+            $($bar2).css('width', `${$subTotal / $freeShip * 100}%`);
+            $('.priceLeft').append(`$${($freeShip - $subTotal).toFixed(2)}`);
+        }
+    }
+
     $('body').on('cart-quantity-update', (event, quantity) => {
         $('.cart-quantity')
             .text(quantity)
             .toggleClass('countPill--positive', quantity > 0);
+            freeShippingLabel();
     });
 
     $cart.on('click', (event) => {
@@ -47,6 +70,7 @@ export default function () {
                 .html(response);
             $cartLoading
                 .hide();
+            freeShippingLabel();
         });
     });
 }
