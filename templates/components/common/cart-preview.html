@@ -1,5 +1,6 @@
 <div class="previewCart">
     {{#if cart.items.length}}
+    <input type="hidden" name="store-token" value="{{settings.storefront_api.token}}">
 
 
     <div class="cart-subtotal">{{cart.sub_total.value}}</div>
@@ -10,12 +11,15 @@
         <div class="freeShipping-text"></div>
     </div>
 
-    
+
         <ul class="previewCartList">
             {{#each cart.items}}
-                <span class="cart_pids" style="display: none;">{{product_id}}</span>
-                <span class="cart_quant" style="display: none;">{{quantity}}</span>
+                <span class="cart_pids" data-id="{{quantity}}" style="display: none;">{{product_id}} </span>
+                <!-- <span class="cart_quant" style="display: none;"></span> -->
+                
+
             {{/each}}
+            <span class="selected_country" style="display: none;">{{cart.shipping_handling.selected_country}}</span>
             {{#each (limit cart.items 4)}}
 
                 <li class="previewCartItem">
@@ -81,9 +85,9 @@
 </div>
 <script>
     let productIDS = []
-        $('.cart_pids').each((i, item) => {
-        console.log(item.innerHTML)
-    })
+    //     $('.cart_pids').each((i, item) => {
+    //     console.log(item.innerHTML)
+    // })
 
 
 
